@@ -21,13 +21,26 @@ body {
     text-align: center;
 }
 
-/* ARKA PLAN KALPLER */
+/* Ortadaki büyük kalp */
+.heart-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 300px;
+    color: rgba(255,255,255,0.08);
+    animation: heartbeat 1.5s infinite;
+    z-index: -1;
+}
+
+/* Arka plandaki 15 kalp */
 .bg-heart {
     position: fixed;
-    font-size: 60px;
-    color: rgba(255,255,255,0.08);
+    font-size: 70px;
+    color: rgba(255,255,255,0.08); /* büyük kalple aynı */
     animation: heartbeat 2s infinite ease-in-out;
-    z-index: 0;
+    pointer-events: none;
+    z-index: -1;
 }
 
 @keyframes heartbeat {
@@ -91,38 +104,40 @@ footer {
 </head>
 <body>
 
+<div class="heart-bg">❤️</div>
+
 <header>
     <h1>İyi ki Varsın ❤️</h1>
     <p>Benim için her gün seninle 14 Şubat gibi…</p>
 </header>
 
 <section class="section">
-    <img src="foto1.jpeg" alt="">
+    <img src="foto1.jpeg">
     <p>Seninle başlayan her an, hayatımın en güzel hikayesi oldu.</p>
 </section>
 
 <section class="section">
-    <img src="foto2.jpeg" alt="">
+    <img src="foto2.jpeg">
     <p>Gülüşün, en karanlık günümü bile aydınlatmaya yetiyor.</p>
 </section>
 
 <section class="section">
-    <img src="foto3.jpeg" alt="">
+    <img src="foto3.jpeg">
     <p>Sen yanımdayken dünya biraz daha huzurlu, biraz daha güzel.</p>
 </section>
 
 <section class="section">
-    <img src="foto4.jpeg" alt="">
+    <img src="foto4.jpeg">
     <p>Beraber attığımız her adım, kalbime işlenmiş bir anı gibi.</p>
 </section>
 
 <section class="section">
-    <img src="foto5.jpeg" alt="">
+    <img src="foto5.jpeg">
     <p>Gözlerine her baktığımda, iyi ki diyorum… iyi ki biz.</p>
 </section>
 
 <section class="section">
-    <img src="foto6.jpeg" alt="">
+    <img src="foto6.jpeg">
     <p>Bu sadece bir 14 Şubat değil, bizim hikayemizin küçük bir kutlaması.</p>
 </section>
 
@@ -131,20 +146,21 @@ footer {
 </footer>
 
 <script>
+window.addEventListener("load", function() {
 
-/* 15 SABİT ARKA PLAN KALBİ */
-for (let i = 0; i < 15; i++) {
-    const heart = document.createElement("div");
-    heart.classList.add("bg-heart");
-    heart.innerHTML = "❤️";
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.className = "bg-heart";
+        heart.innerHTML = "❤️";
 
-    heart.style.top = Math.random() * 100 + "vh";
-    heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.left = Math.random() * 100 + "vw";
 
-    document.body.appendChild(heart);
-}
+        document.body.appendChild(heart);
+    }
 
-/* Scroll animasyonu */
+});
+
 const sections = document.querySelectorAll('.section');
 
 window.addEventListener('scroll', () => {
@@ -155,7 +171,6 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-
 </script>
 
 </body>
