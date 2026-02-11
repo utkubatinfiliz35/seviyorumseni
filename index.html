@@ -21,24 +21,21 @@ body {
     text-align: center;
 }
 
-/* Nabız gibi atan büyük kalp */
-.heart-bg {
+/* ARKA PLAN KALPLER */
+.bg-heart {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 300px;
+    font-size: 60px;
     color: rgba(255,255,255,0.08);
-    animation: heartbeat 1.5s infinite;
+    animation: heartbeat 2s infinite ease-in-out;
     z-index: 0;
 }
 
 @keyframes heartbeat {
-    0% { transform: translate(-50%, -50%) scale(1); }
-    25% { transform: translate(-50%, -50%) scale(1.1); }
-    50% { transform: translate(-50%, -50%) scale(1); }
-    75% { transform: translate(-50%, -50%) scale(1.15); }
-    100% { transform: translate(-50%, -50%) scale(1); }
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+    100% { transform: scale(1); }
 }
 
 header {
@@ -94,8 +91,6 @@ footer {
 </head>
 <body>
 
-<div class="heart-bg">❤️</div>
-
 <header>
     <h1>İyi ki Varsın ❤️</h1>
     <p>Benim için her gün seninle 14 Şubat gibi…</p>
@@ -136,6 +131,20 @@ footer {
 </footer>
 
 <script>
+
+/* 15 SABİT ARKA PLAN KALBİ */
+for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("bg-heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.top = Math.random() * 100 + "vh";
+    heart.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(heart);
+}
+
+/* Scroll animasyonu */
 const sections = document.querySelectorAll('.section');
 
 window.addEventListener('scroll', () => {
@@ -146,8 +155,8 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
 </script>
 
 </body>
 </html>
-
