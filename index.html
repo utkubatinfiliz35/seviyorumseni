@@ -3,13 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>14 Şubat Sevgilim ile Sevgililer Günüm❤️</title>
-    <title>Sensiz geçen her an, saat değil sanki sızı oluyor,❤️</title>
-    <title>Adını içimden geçirince dünya yavaşlıyor.,❤️</title>
-    <title>Seni özlemek, kalbimin sana karşı nasıl attığını hatırlatıyor bana,❤️</title>
-    <title>Gözlerin yokken bile gözlerimde sen varsın.❤️</title>
-    <title>Ve ben, en çok seni severken kendim oluyorum.❤️</title>
-
+<title>14subaticinbitaneme ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -27,7 +21,7 @@ body {
     text-align: center;
 }
 
-/* Ortadaki büyük kalp */
+/* Büyük kalp */
 .heart-bg {
     position: fixed;
     top: 50%;
@@ -39,11 +33,11 @@ body {
     z-index: -1;
 }
 
-/* Arka plandaki 15 kalp */
+/* Arka plan kalpler */
 .bg-heart {
     position: fixed;
-    font-size: 70px;
-    color: rgba(255,255,255,0.08); /* büyük kalple aynı */
+    font-size: 60px;
+    color: rgba(255,255,255,0.08);
     animation: heartbeat 2s infinite ease-in-out;
     pointer-events: none;
     z-index: -1;
@@ -58,50 +52,57 @@ body {
 }
 
 header {
-    padding: 100px 20px 50px;
+    padding: 120px 20px 60px;
     position: relative;
     z-index: 1;
 }
 
-header h1 {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-header p {
-    font-size: 18px;
-    opacity: 0.9;
-}
-
+/* Çapraz bloklar */
 .section {
-    margin: 80px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: 120px 10%;
     position: relative;
     z-index: 1;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: 1s ease;
 }
 
-.section.show {
-    opacity: 1;
-    transform: translateY(0);
+.section:nth-of-type(even) {
+    flex-direction: row-reverse;
 }
 
 .section img {
-    width: 80%;
-    max-width: 500px;
+    width: 320px;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.4s ease;
 }
 
-.section p {
-    font-size: 18px;
-    padding: 0 20px;
+.section img.active {
+    transform: scale(1.08);
+}
+
+/* Anı kutusu */
+.memory {
+    max-width: 320px;
+    background: rgba(255,255,255,0.18);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    transform: translateX(120px);
+    opacity: 0;
+    transition: 0.6s ease;
+}
+
+.memory.show {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 footer {
-    margin: 100px 0 40px;
+    margin: 150px 0 40px;
     font-size: 20px;
     position: relative;
     z-index: 1;
@@ -113,47 +114,65 @@ footer {
 <div class="heart-bg">❤️</div>
 
 <header>
-    <h1>İyi ki Varsın Sevgilim İyi ki Benlesin İyi ki Senleyim ❤️</h1>
+    <h1>İyi ki Varsın ❤️</h1>
     <p>Benim için her gün seninle 14 Şubat gibi…</p>
 </header>
 
 <section class="section">
-    <img src="foto1.jpeg">
-    <p>Seninle başlayan her an, hayatımın en güzel hikayesi oldu.</p>
+    <img src="foto1.jpeg" onclick="toggleMemory(this)">
+    <div class="memory">
+        Bu fotoğrafı çektiğimiz gün hiç susmadan gülmüştük.
+        O an zaman dursun istemiştim.
+    </div>
 </section>
 
 <section class="section">
-    <img src="foto2.jpeg">
-    <p>Gülüşün, en karanlık günümü bile aydınlatmaya yetmekle kalmayıp bana ışık oluyor.</p>
+    <img src="foto2.jpeg" onclick="toggleMemory(this)">
+    <div class="memory">
+        O gün hava soğuktu ama sen yanımdaydın,
+        bu yüzden içim sıcacıktı.
+    </div>
 </section>
 
 <section class="section">
-    <img src="foto3.jpeg">
-    <p>Sen yanımdayken dünya daha huzurlu, daha güzel hale geliyor.</p>
+    <img src="foto3.jpeg" onclick="toggleMemory(this)">
+    <div class="memory">
+        Gözlerine baktığım o an,
+        kalbimin yerini değiştirdiğini hissettim.
+    </div>
 </section>
 
 <section class="section">
-    <img src="foto4.jpeg">
-    <p>Beraber attığımız her adım, kalbime işlenmiş bir anı gibi.</p>
+    <img src="foto4.jpeg" onclick="toggleMemory(this)">
+    <div class="memory">
+        Beraber attığımız her adım,
+        hayatımın en doğru yolu gibi.
+    </div>
 </section>
 
 <section class="section">
-    <img src="foto5.jpeg">
-    <p>Gözlerine her baktığımda, iyi ki diyorum… iyi ki biz.</p>
+    <img src="foto5.jpeg" onclick="toggleMemory(this)">
+    <div class="memory">
+        O anı hatırladıkça hala aynı heyecanı yaşıyorum.
+    </div>
 </section>
 
 <section class="section">
-    <img src="foto6.jpeg">
-    <p>Bu sadece bir 14 Şubat değil, bizim hikayemizin küçük bir kutlaması ama büyük adımlarımızın güzel yolları.</p>
+    <img src="foto6.jpeg" onclick="toggleMemory(this)">
+    <div class="memory">
+        Seninle geçen her gün,
+        en sevdiğim hikayenin yeni bir sayfası.
+    </div>
 </section>
 
 <footer>
-   Seninle Sonsuz 14 Şubatlara… ❤️
+    Sonsuz 14 Şubatlara… ❤️
 </footer>
 
 <script>
-window.addEventListener("load", function() {
 
+/* 15 arka plan kalbi */
+window.addEventListener("load", function() {
     for (let i = 0; i < 15; i++) {
         const heart = document.createElement("div");
         heart.className = "bg-heart";
@@ -164,19 +183,22 @@ window.addEventListener("load", function() {
 
         document.body.appendChild(heart);
     }
-
 });
 
-const sections = document.querySelectorAll('.section');
+/* Tek anı açık kalacak sistem */
+function toggleMemory(clickedImg) {
 
-window.addEventListener('scroll', () => {
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if(sectionTop < window.innerHeight - 100){
-            section.classList.add('show');
-        }
-    });
-});
+    const allMemories = document.querySelectorAll(".memory");
+    const allImages = document.querySelectorAll(".section img");
+
+    allMemories.forEach(m => m.classList.remove("show"));
+    allImages.forEach(img => img.classList.remove("active"));
+
+    const memory = clickedImg.parentElement.querySelector(".memory");
+    memory.classList.add("show");
+    clickedImg.classList.add("active");
+}
+
 </script>
 
 </body>
