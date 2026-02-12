@@ -51,12 +51,6 @@ body {
     100% { transform: scale(1); }
 }
 
-header {
-    padding: 120px 20px 60px;
-    position: relative;
-    z-index: 1;
-}
-
 /* Çapraz bloklar */
 .section {
     display: flex;
@@ -99,6 +93,26 @@ header {
 .memory.show {
     transform: translateX(0);
     opacity: 1;
+}
+
+/* Patlayan küçük kalpler */
+.pop-heart {
+    position: fixed;
+    font-size: 18px;
+    pointer-events: none;
+    animation: flyHeart 1s ease-out forwards;
+    z-index: 999;
+}
+
+@keyframes flyHeart {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(1.8);
+    }
 }
 
 footer {
@@ -172,21 +186,19 @@ footer {
 
 <script>
 
-/* 15 arka plan kalbi */
+/* Arka plan kalpler */
 window.addEventListener("load", function() {
     for (let i = 0; i < 15; i++) {
         const heart = document.createElement("div");
         heart.className = "bg-heart";
         heart.innerHTML = "❤️";
-
         heart.style.top = Math.random() * 100 + "vh";
         heart.style.left = Math.random() * 100 + "vw";
-
         document.body.appendChild(heart);
     }
 });
 
-/* Tek anı açık kalacak sistem */
+/* Tek anı açık + kalp patlama */
 function toggleMemory(clickedImg) {
 
     const allMemories = document.querySelectorAll(".memory");
@@ -198,6 +210,38 @@ function toggleMemory(clickedImg) {
     const memory = clickedImg.parentElement.querySelector(".memory");
     memory.classList.add("show");
     clickedImg.classList.add("active");
+
+    createHearts(clickedImg);
+}
+
+/* Kalp patlatma efekti */
+function createHearts(element) {
+
+    const rect = element.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    for (let i = 0; i < 30; i++) {
+
+        const heart = document.createElement("div");
+        heart.className = "pop-heart";
+        heart.innerHTML = "❤️";
+
+        heart.style.left = centerX + "px";
+        heart.style.top = centerY + "px";
+
+        const randomX = (Math.random() - 0.5) * 400 + "px";
+        const randomY = (Math.random() - 0.5) * 400 + "px";
+
+        heart.style.setProperty("--x", randomX);
+        heart.style.setProperty("--y", randomY);
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1000);
+    }
 }
 
 </script>
